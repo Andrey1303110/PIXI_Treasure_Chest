@@ -8,6 +8,7 @@ export let LoaderConfig = {
     click_mp3: require("../sounds/click.mp3"),
     click_wav: require("../sounds/click.wav"),
     bg: require("../sprites/bg.png"),
+    play_now: require("../sprites/play_now.png"),
 };
 
 for (let i = 1; i <= 9; i++) {
