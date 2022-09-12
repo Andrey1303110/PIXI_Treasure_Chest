@@ -12,6 +12,6 @@ export let LoaderConfig = {
 };
 
 for (let i = 1; i <= 9; i++) {
-    LoaderConfig[`chest_lose${i}`] = require(`../sprites/lose/${i}.png`);
-    LoaderConfig[`chest_win${i}`] = require(`../sprites/win/${i}.png`);
+    LoaderConfig[`chestLose_${i}`] = require(`../sprites/lose/${i}.png`);
+    LoaderConfig[`chestWin_${i}`] = require(`../sprites/win/${i}.png`);
 }
