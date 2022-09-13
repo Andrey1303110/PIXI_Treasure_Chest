@@ -46,7 +46,7 @@ export class MainScene {
         tween.easing(TWEEN.Easing.Quadratic.InOut);
         tween.start();
 
-        this.playNowBtn.on('pointerdown', this.removeInitObjects, this);
+        this.playNowBtn.on('pointerdown', this.addChestGrid, this);
     }
 
     createInitChest(){
@@ -63,7 +63,7 @@ export class MainScene {
         this.container.addChild(this.initChest);
     }
 
-    removeInitObjects() {
+    addChestGrid() {
         const tween1 = new TWEEN.Tween(this.playNowBtn);
         tween1.to({ 
             y: document.body.clientHeight + this.playNowBtn.height,
