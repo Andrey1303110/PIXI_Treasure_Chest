@@ -6,11 +6,25 @@ import {Howl, Howler} from 'howler';
 
 export class Chest {
     constructor(isWin, bonusWin, field, num) {
-        this.sprite = new PIXI.Sprite(Globals.resources['chestLose_1'].texture);
+        let textureArray = [];
+
+        for (let i = 1; i <= 9; i++) {
+            let source;
+            if (isWin) {
+                source = Globals.resources[`chestWin_${i}`];
+            } else {
+                source = Globals.resources[`chestLose_${i}`];
+            }
+            textureArray.push(source.texture);
+        };
+
+        this.sprite = new PIXI.AnimatedSprite(textureArray);
+        this.sprite.animationSpeed = 1/3;
+        this.sprite.loop = false;
         this.sprite.tint = 0xC9C9C9;
         this.sprite.anchor.set(.5);
         
-        let ratio = this.sprite.width / this.sprite.height;
+        let ratio = this.sprite.height / this.sprite.width;
 
         this.sprite.width = ChestGridConfig.chestSize;
         this.sprite.height = this.sprite.width * ratio;
@@ -21,15 +35,12 @@ export class Chest {
         this.field = field;
         this.num = num;
         this.setPosition();
-
-        this.setInteractive();
     }
 
     setInteractive() {
         this.sprite.interactive = true;
-        this.sprite.on('pointerdown', this.onTouch, this);
-        this.sprite.on('pointerover', this.onPointerOver);
-        this.sprite.on('pointerout', this.onPointerOut);
+        this.sprite.on('pointerover', this.onPointerOver, this);
+        this.sprite.on('pointerout', this.onPointerOut, this);
     }
 
     onTouch() {
@@ -45,16 +56,22 @@ export class Chest {
     }
     
     onPointerOver(){
+        if (this.isOpened) {
+            return;
+        }
         Globals.resources.sounds.click.play();
-        this.tint = 0xFFFFFF;
-        this.width *= 1.225;
-        this.height *= 1.225;
+        this.sprite.tint = 0xFFFFFF;
+        this.sprite.width *= 1.225;
+        this.sprite.height *= 1.225;
     }
 
     onPointerOut(){
-        this.tint = 0xC9C9C9;
-        this.width /= 1.225;
-        this.height /= 1.225;
+        if (this.isOpened) {
+            return;
+        }
+        this.sprite.tint = 0xC9C9C9;
+        this.sprite.width /= 1.225;
+        this.sprite.height /= 1.225;
     }
 
     setPosition() {
