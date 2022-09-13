@@ -42,18 +42,6 @@ export class Chest {
         this.sprite.on('pointerover', this.onPointerOver, this);
         this.sprite.on('pointerout', this.onPointerOut, this);
     }
-
-    onTouch() {
-        if (this.isWin) {
-            alert('you win!')
-        } else {
-            alert('you lose!')
-        }
-        if (this.bonusWin) {
-            alert('Bonus!')
-        }
-        this.sprite.zIndex = 1;
-    }
     
     onPointerOver(){
         if (this.isOpened) {
