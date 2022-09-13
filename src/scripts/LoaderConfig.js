@@ -7,6 +7,8 @@ export let LoaderConfig = {
     theme_wav: require("../sounds/theme.wav"),
     click_mp3: require("../sounds/click.mp3"),
     click_wav: require("../sounds/click.wav"),
+    angelic_choir_mp3: require("../sounds/angelic_choir.mp3"),
+    angelic_choir_wav: require("../sounds/angelic_choir.wav"),
     bg: require("../sprites/bg.png"),
     play_now: require("../sprites/play_now.png"),
 };
