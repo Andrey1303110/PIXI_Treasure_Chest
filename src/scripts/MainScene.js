@@ -91,10 +91,15 @@ export class MainScene {
             }),
             lose: new Howl({
                 src: [Globals.resources.lose_mp3.url, Globals.resources.lose_wav.url],
-                html5: true
+                html5: true,
+                rate: 2
             }),
             win: new Howl({
                 src: [Globals.resources.win_mp3.url, Globals.resources.win_wav.url],
+                html5: true
+            }),
+            angelic_choir: new Howl({
+                src: [Globals.resources.angelic_choir_mp3.url, Globals.resources.angelic_choir_wav.url],
                 html5: true
             }),
             theme: new Howl({
