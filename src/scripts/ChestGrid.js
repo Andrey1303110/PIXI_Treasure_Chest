@@ -36,6 +36,8 @@ export class ChestGrid {
 
             const chest = new Chest(isWin, isBonus, field, this.chests.length);
 
+            chest.sprite.on('pointerdown', () => this.openChest(chest), this);
+
             this.container.addChild(chest.sprite);
             this.chests.push(chest);
         });
@@ -49,6 +51,11 @@ export class ChestGrid {
         tween.delay(this.chests.length * ChestGridConfig.animation.position_duration);
         tween.easing(TWEEN.Easing.Bounce.Out);
         tween.start();
+        tween.onComplete(() => {
+            this.chests.forEach(chest => {
+                chest.setInteractive()
+            });
+        });
     }
 
     generateBonusWin(bonus_num){
@@ -71,6 +78,89 @@ export class ChestGrid {
                 this.chests[random_num].bonusWin = true;
             }
         }
+    }
+
+    openChest(chest){
+        console.log(chest);
+
+        if (chest.isOpened) {
+            return;
+        }
+
+        chest.isOpened = true;
+        console.log(chest);
+        chest.sprite.tint = 0xFFFFFF;
+
+        const chests = this.chests.filter(elem => elem !== chest);
+
+        chests.forEach(chest => {
+            const tween = new TWEEN.Tween(chest.sprite);
+            tween.to({ 
+                y: document.body.clientHeight * 2,
+            }, 725);
+            tween.easing(TWEEN.Easing.Bounce.Out);
+            tween.start();
+        });
+
+        const tween = new TWEEN.Tween(chest.sprite);
+        tween.to({
+            x: 0,
+            y: 0,
+        }, 725);
+        tween.delay(425);
+        tween.easing(TWEEN.Easing.Back.InOut);
+        tween.start();
+        tween.onComplete(() => {
+            const tween2 = new TWEEN.Tween(chest.sprite);
+            tween2.to({
+                width: chest.sprite.width * 1.75,
+                height: chest.sprite.height * 1.75,
+            }, Globals.resources.sounds.angelic_choir._duration * 1000);
+            tween2.easing(TWEEN.Easing.Linear.None);
+            tween2.start();
+            
+            tween2.onStart(() => Globals.resources.sounds.angelic_choir.play());
+            tween2.onComplete(() => { this.startOpenAnimation(chest) });
+        });
+    }
+
+    startOpenAnimation(chest) {
+        if (chest.isWin) {
+            Globals.resources.sounds.win.play();
+        } else {
+            Globals.resources.sounds.lose.play();
+        }
+
+        chest.sprite.play();
+
+        setTimeout(() => {
+            this.returnChests(chest);
+        }, 9 * (1000 / 24 * 3));
+    }
+
+    returnChests(openedChest) {
+        const chests = this.chests.filter(elem => elem !== openedChest);
+
+        const tween = new TWEEN.Tween(openedChest.sprite);
+        tween.to({
+            width: openedChest.sprite.width / 1.75,
+            height: openedChest.sprite.height / 1.75,
+            x: openedChest.field.x,
+            y: openedChest.field.y,
+        }, 450);
+        tween.easing(TWEEN.Easing.Linear.None);
+        tween.start();
+
+        chests.forEach(chest => {
+            const tween = new TWEEN.Tween(chest.sprite);
+            tween.to({
+                x: chest.field.x,
+                y: chest.field.y,
+            }, 725);
+            tween.delay(450);
+            tween.easing(TWEEN.Easing.Linear.None);
+            tween.start();
+        });
     }
 
     checkPieces(){
