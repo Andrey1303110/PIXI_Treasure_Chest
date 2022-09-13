@@ -80,6 +80,8 @@ export class MainScene {
         tween2.onComplete(() => {
             const grid = new ChestGrid();
             this.container.addChild(grid.container);
+            this.container.removeChild(this.initChest);
+            this.container.removeChild(this.playNowBtn);
         });
     }
 
