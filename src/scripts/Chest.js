@@ -21,7 +21,7 @@ export class Chest {
         this.sprite = new PIXI.AnimatedSprite(textureArray);
         this.sprite.animationSpeed = 1/3;
         this.sprite.loop = false;
-        this.sprite.tint = 0xC9C9C9;
+        this.sprite.alpha = .85;
         this.sprite.anchor.set(.5);
         
         let ratio = this.sprite.height / this.sprite.width;
@@ -49,6 +49,7 @@ export class Chest {
         }
         Globals.resources.sounds.click.play();
         this.sprite.tint = 0xFFFFFF;
+        this.sprite.alpha = 1;
         this.sprite.width *= 1.225;
         this.sprite.height *= 1.225;
     }
@@ -57,7 +58,7 @@ export class Chest {
         if (this.isOpened) {
             return;
         }
-        this.sprite.tint = 0xC9C9C9;
+        this.sprite.alpha = .85;
         this.sprite.width /= 1.225;
         this.sprite.height /= 1.225;
     }
