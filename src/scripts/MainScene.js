@@ -109,7 +109,7 @@ export class MainScene {
                 html5: true,
                 autoplay: true,
                 loop: true,
-                volume: 0.2,
+                volume: 0.15,
             }),
         };
     }
