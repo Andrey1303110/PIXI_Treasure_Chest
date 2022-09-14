@@ -17,3 +17,8 @@ for (let i = 1; i <= 9; i++) {
     LoaderConfig[`chestLose_${i}`] = require(`../sprites/lose/${i}.png`);
     LoaderConfig[`chestWin_${i}`] = require(`../sprites/win/${i}.png`);
 }
+
+for (let i = 1; i <= 18; i++) {
+    LoaderConfig[`goldCoin_${i}`] = require(`../sprites/gold_coin/${i}.png`);
+    LoaderConfig[`goldBar_${i}`] = require(`../sprites/gold_bar/${i}.png`);
+}
