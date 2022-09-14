@@ -36,7 +36,7 @@ export class ChestGrid {
 
             const chest = new Chest(isWin, isBonus, field, this.chests.length);
 
-            chest.sprite.on('pointerdown', () => this.openChest(chest), this);
+            chest.sprite.on('pointerdown', () => this.selectChest(chest), this);
 
             this.container.addChild(chest.sprite);
             this.chests.push(chest);
@@ -80,7 +80,7 @@ export class ChestGrid {
         }
     }
 
-    openChest(chest){
+    selectChest(chest){
         if (chest.isOpened) {
             return;
         }
@@ -130,23 +130,26 @@ export class ChestGrid {
         chest.sprite.play();
 
         setTimeout(() => {
-            this.returnChests(chest);
-        }, 9 * (1000 / 24 * 3));
+            const time_to_start = Globals.scenes.main.createFinalScreen(chest);
+            this.returnChests(chest, time_to_start);
+        }, 1500);
     }
 
-    returnChests(openedChest) {
+    returnChests(openedChest, delay = 0) {
         const chests = this.chests.filter(elem => elem !== openedChest);
 
         const tween = new TWEEN.Tween(openedChest.sprite);
         tween.to({
-            width: (openedChest.sprite.width / 1.75) / 1.225,
-            height: (openedChest.sprite.height / 1.75) / 1.225,
+            width: openedChest.sprite.width / 1.75,
+            height: openedChest.sprite.height / 1.75,
             x: openedChest.field.x,
             y: openedChest.field.y,
             alpha: .5
         }, 450);
+        tween.delay(delay);
         tween.easing(TWEEN.Easing.Linear.None);
         tween.start();
+        tween.onComplete(() => this.checkChests());
 
         chests.forEach(chest => {
             const tween = new TWEEN.Tween(chest.sprite);
@@ -154,51 +157,35 @@ export class ChestGrid {
                 x: chest.field.x,
                 y: chest.field.y,
             }, 725);
-            tween.delay(450);
+            tween.delay(450 + delay);
             tween.easing(TWEEN.Easing.Linear.None);
             tween.start();
         });
     }
 
-    checkPieces(){
-        let correct_count = 0;
-        for (let i = 0; i < this.chests.length; i++) {
-            const piece = this.chests[i];
-    
-            if (piece.y === ChestGridConfig.pieces[piece.correctId-1].y && piece.x === ChestGridConfig.pieces[piece.correctId-1].x) {
-                correct_count++;
-                if (correct_count >= this.chests.length) {
-                    Globals.resources.sounds.win.play();
-                    this.puzzleDone();
-                }
-            }
+    checkChests(){
+        const closedChests = this.chests.filter(chest => !chest.isOpened);
+        
+        if (!closedChests.length) {
+            this.gameDone();
         }
     }
 
-    puzzleDone(){
-        for (let i = 0; i < this.chests.length; i++) {
-            const piece = this.chests[i];
-
-            const tween = new TWEEN.Tween(piece);
-            let pos = { x: 0, y: 0};
-            if (piece.x < 0) {
-                pos.x = piece.x + ChestGridConfig.gap
-            }
-            if (piece.x > 0) {
-                pos.x = piece.x - ChestGridConfig.gap
-            }
-            if (piece.y < 0) {
-                pos.y = piece.y + ChestGridConfig.gap
-            }
-            if (piece.y > 0) {
-                pos.y = piece.y - ChestGridConfig.gap
-            }
-            tween.to({ 
-                x: pos.x,
-                y: pos.y,
-            }, 325);
-            tween.easing(TWEEN.Easing.Back.Out);
+    gameDone(){
+        const duration = 1500;
+        this.chests.forEach(chest => {
+            const tween = new TWEEN.Tween(chest.sprite);
+            tween.to({
+                alpha: 0,
+            }, duration);
+            tween.delay(duration);
+            tween.easing(TWEEN.Easing.Linear.None);
             tween.start();
-        }
+        });
+
+        setTimeout(() => {
+            this.container.destroy();
+            Globals.scenes.main.init();
+        }, duration * 2);
     }
 }
