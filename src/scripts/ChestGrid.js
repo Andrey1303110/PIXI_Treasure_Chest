@@ -81,15 +81,11 @@ export class ChestGrid {
     }
 
     openChest(chest){
-        console.log(chest);
-
         if (chest.isOpened) {
             return;
         }
 
         chest.isOpened = true;
-        console.log(chest);
-        chest.sprite.tint = 0xFFFFFF;
 
         const chests = this.chests.filter(elem => elem !== chest);
 

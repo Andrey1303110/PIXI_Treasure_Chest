@@ -48,7 +48,6 @@ export class Chest {
             return;
         }
         Globals.resources.sounds.click.play();
-        this.sprite.tint = 0xFFFFFF;
         this.sprite.alpha = 1;
         this.sprite.width *= 1.225;
         this.sprite.height *= 1.225;
