@@ -2,7 +2,7 @@ export let ChestGridConfig = {
     chests: [],
     chests_in_width: 3,
     chests_in_height: 2,
-    chestSize: document.body.clientWidth / 8,
+    chestSize: document.body.clientWidth / 9,
     animation: {
         init_delay: 425,
         position_duration: 275,
@@ -13,7 +13,7 @@ export let ChestGridConfig = {
 
 ChestGridConfig.gap = {
     width: ChestGridConfig.chestSize,
-    height: ChestGridConfig.chestSize / 5,
+    height: ChestGridConfig.chestSize / 4,
 }
 
 for (let height_index = 0; height_index < ChestGridConfig.chests_in_height; height_index++) {
