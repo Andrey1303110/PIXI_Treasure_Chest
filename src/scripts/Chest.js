@@ -6,11 +6,27 @@ import {Howl, Howler} from 'howler';
 
 export class Chest {
     constructor(isWin, bonusWin, field, num) {
+        this.isOpened = false;
+        this.isWin = Boolean(isWin);
+        this.bonusWin = bonusWin;
+        this.field = field;
+        this.num = num;
+
+        this.init();
+    }
+
+    init() {
+        this.getTextures();
+        this.createSprite();
+        this.setPosition();
+    }
+
+    getTextures() {
         let textureArray = [];
 
         for (let i = 1; i <= 9; i++) {
             let source;
-            if (isWin) {
+            if (this.isWin) {
                 source = Globals.resources[`chestWin_${i}`];
             } else {
                 source = Globals.resources[`chestLose_${i}`];
@@ -18,7 +34,11 @@ export class Chest {
             textureArray.push(source.texture);
         };
 
-        this.sprite = new PIXI.AnimatedSprite(textureArray);
+        this.textureArray = textureArray;
+    }
+
+    createSprite() {
+        this.sprite = new PIXI.AnimatedSprite(this.textureArray);
         this.sprite.animationSpeed = 1/3;
         this.sprite.loop = false;
         this.sprite.alpha = .85;
@@ -28,13 +48,6 @@ export class Chest {
 
         this.sprite.width = ChestGridConfig.chestSize;
         this.sprite.height = this.sprite.width * ratio;
-
-        this.isOpened = false;
-        this.isWin = Boolean(isWin);
-        this.bonusWin = bonusWin;
-        this.field = field;
-        this.num = num;
-        this.setPosition();
     }
 
     setInteractive() {
