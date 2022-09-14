@@ -143,10 +143,11 @@ export class ChestGrid {
 
         const tween = new TWEEN.Tween(openedChest.sprite);
         tween.to({
-            width: openedChest.sprite.width / 1.75,
-            height: openedChest.sprite.height / 1.75,
+            width: (openedChest.sprite.width / 1.75) / 1.225,
+            height: (openedChest.sprite.height / 1.75) / 1.225,
             x: openedChest.field.x,
             y: openedChest.field.y,
+            alpha: .5
         }, 450);
         tween.easing(TWEEN.Easing.Linear.None);
         tween.start();
