@@ -13,7 +13,7 @@ export let ChestGridConfig = {
 
 ChestGridConfig.gap = {
     width: ChestGridConfig.chestSize,
-    height: ChestGridConfig.chestSize / 10,
+    height: ChestGridConfig.chestSize / 5,
 }
 
 for (let height_index = 0; height_index < ChestGridConfig.chests_in_height; height_index++) {
