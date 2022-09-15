@@ -158,7 +158,7 @@ export class MainScene {
 
     createBonusScreen() {
         this.createBonusBG();
-        this.creteBonusLogo();
+        this.createBonusLogo();
     }
 
     createBonusBG() {
@@ -213,7 +213,7 @@ export class MainScene {
         tween.start();
     }
 
-    creteBonusLogo() {
+    createBonusLogo() {
         const bonus = new PIXI.Sprite(Globals.resources["bonus"].texture);
 
         bonus.width /= 10;
@@ -237,11 +237,11 @@ export class MainScene {
         tween.onComplete(() => {
             this.container.removeChild(bonus);
             bonus.destroy();
-            this.creteBonusBanknote();
+            this.createBonusBanknote();
         });
     }
 
-    creteBonusBanknote() {
+    createBonusBanknote() {
         const bonus_banknote = new PIXI.Sprite(Globals.resources["bonus_banknote"].texture);
 
         bonus_banknote.width = bonus_banknote._texture.orig.width / 20;
@@ -257,8 +257,8 @@ export class MainScene {
         const tween = new TWEEN.Tween(bonus_banknote);
 
         tween.to({
-            width: document.body.clientWidth,
-            height: document.body.clientWidth / bonus_banknote._texture.orig.width * bonus_banknote._texture.orig.height,
+            width: Math.min(document.body.clientWidth, document.body.clientHeight),
+            height: Math.min(document.body.clientWidth, document.body.clientHeight) / bonus_banknote._texture.orig.width * bonus_banknote._texture.orig.height,
         }, 2500);
         tween.easing(TWEEN.Easing.Linear.None);
         tween.start();
