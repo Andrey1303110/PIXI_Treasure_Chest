@@ -64,11 +64,11 @@ This game created on PixiJS — The HTML5 Creation Engine
     3) The Chest bonus winning - Starts a gold bars drop animation
 </p>
 
-###### Chest loses
+### Chest loses
 
 <img src="/readme_assets/3.png" width="100%">
 
-###### Chest winning
+#### Chest winning
 
 <img src="/readme_assets/4.png" width="100%">
 
@@ -81,7 +81,9 @@ This game created on PixiJS — The HTML5 Creation Engine
 
 <img src="/readme_assets/6.png" width="100%">
 
-
+<p>
+    The animation itself of coins and gold bars falling is generated randomly by duration, by the intensity of the fall, by the speed of rotation of each object. Each object contains several frames, which gives the impression of being three-dimensional.
+</p>
 
 ## About the project.
 
