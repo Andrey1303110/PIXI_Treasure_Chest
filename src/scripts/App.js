@@ -18,7 +18,7 @@ export class App {
 
     start() {
         document.querySelector(".loader").style.display = "none";
-        
+
         this.app.ticker.add(() => {
             TWEEN.update();
         })
@@ -29,5 +29,7 @@ export class App {
         Globals.scenes = {
             main: this.scene,
         }
+
+        window.addEventListener('resize', () => document.location.reload());
     }
 }

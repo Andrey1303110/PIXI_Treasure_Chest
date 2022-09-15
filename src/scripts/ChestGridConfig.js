@@ -7,13 +7,19 @@ export let ChestGridConfig = {
         init_delay: 425,
         position_duration: 275,
     },
-    bonusWinChance: 1/10,
+    bonusWinChance: 1,
     bonusMaxCount: 1,
 };
 
 ChestGridConfig.gap = {
     width: ChestGridConfig.chestSize,
     height: ChestGridConfig.chestSize / 4,
+}
+
+if (document.body.clientHeight >= document.body.clientWidth) {
+    ChestGridConfig.chestSize *= 2.7;
+    ChestGridConfig.gap.width /= 2;
+    ChestGridConfig.gap.height *= 3;
 }
 
 for (let height_index = 0; height_index < ChestGridConfig.chests_in_height; height_index++) {

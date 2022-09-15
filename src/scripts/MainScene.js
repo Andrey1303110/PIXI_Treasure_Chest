@@ -43,8 +43,10 @@ export class MainScene {
     createPlayNowButton() {
         this.playNowBtn = new PIXI.Sprite(Globals.resources["play_now"].texture);
         this.playNowBtn.anchor.set(0.5);
-        this.playNowBtn.width = this.playNowBtn.width * .5;
-        this.playNowBtn.height = this.playNowBtn.height * .5;
+
+        this.playNowBtn.width = document.body.clientHeight / 2.75;
+        this.playNowBtn.height = this.playNowBtn._texture.orig.height / this.playNowBtn._texture.orig.width * this.playNowBtn.width;
+
         this.playNowBtn.x = document.body.clientWidth / 2;
         this.playNowBtn.y = document.body.clientHeight + this.playNowBtn.height;
         this.playNowBtn.interactive = true;
@@ -73,8 +75,8 @@ export class MainScene {
     createInitChest() {
         this.initChest = new PIXI.Sprite(Globals.resources["chestWin_9"].texture);
 
-        this.initChest.width *= 1.25;
-        this.initChest.height *= 1.25;
+        this.initChest.width = document.body.clientHeight / 2.45;
+        this.initChest.height = this.initChest._texture.orig.height / this.initChest._texture.orig.width * this.initChest.width;
 
         this.initChest.x = document.body.clientWidth / 2;
         this.initChest.y = -this.initChest.height;
@@ -242,8 +244,8 @@ export class MainScene {
     creteBonusBanknote() {
         const bonus_banknote = new PIXI.Sprite(Globals.resources["bonus_banknote"].texture);
 
-        bonus_banknote.width /= 10;
-        bonus_banknote.height /= 10;
+        bonus_banknote.width = bonus_banknote._texture.orig.width / 20;
+        bonus_banknote.height = bonus_banknote._texture.orig.height / 20;
 
         bonus_banknote.x = document.body.clientWidth / 2;
         bonus_banknote.y = document.body.clientHeight / 2;
@@ -253,9 +255,10 @@ export class MainScene {
         this.container.addChild(bonus_banknote);
 
         const tween = new TWEEN.Tween(bonus_banknote);
+
         tween.to({
-            width: bonus_banknote.width * 10,
-            height: bonus_banknote.height * 10,
+            width: document.body.clientWidth,
+            height: document.body.clientWidth / bonus_banknote._texture.orig.width * bonus_banknote._texture.orig.height,
         }, 2500);
         tween.easing(TWEEN.Easing.Linear.None);
         tween.start();
