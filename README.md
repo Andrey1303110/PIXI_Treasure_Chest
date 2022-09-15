@@ -130,6 +130,12 @@ The following libraries were used in the creation of the game:
 
 <p>The game was compiled using Webpack 5.74.0</p>
 
+### Adaptation
+
+<img src="/readme_assets/10.png" width="50%">
+
+<p>The game also has an adaptive layout that expands and contracts to the size of the device screen.</p>
+
 ## Project setup
 
 ```
