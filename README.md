@@ -64,7 +64,7 @@ This game created on PixiJS — The HTML5 Creation Engine
     3) The Chest bonus winning - Starts a gold bars drop animation
 </p>
 
-### Chest loses
+#### Chest loses
 
 <img src="/readme_assets/3.png" width="100%">
 
@@ -72,73 +72,59 @@ This game created on PixiJS — The HTML5 Creation Engine
 
 <img src="/readme_assets/4.png" width="100%">
 
-
-###### Chest winning animation
+#### Chest winning animation
 
 <img src="/readme_assets/5.png" width="100%">
 
-###### Chest bonus winning animation
+#### Chest bonus winning animation
 
 <img src="/readme_assets/6.png" width="100%">
+
+#### Chest bonus winning badge
 
 <p>
     The animation itself of coins and gold bars falling is generated randomly by duration, by the intensity of the fall, by the speed of rotation of each object. Each object contains several frames, which gives the impression of being three-dimensional.
 </p>
 
+<img src="/readme_assets/7.png" width="100%">
+
+<p>
+    If you are lucky enough to open the chest with a bonus win you will receive a corresponding badge that says you have won $100,000.
+</p>
+
+<img src="/readme_assets/8.png" width="100%">
+
+<p>
+    This badge will move to the upper right corner as the animation progresses. Where it will be all the time until the chest run out.
+</p>
+
+### When all chests are open - game re-create new chests
+
+<img src="/readme_assets/9.png" width="100%">
+
+<p>
+    An animation of the appearance of new boxes on the screen will be played.
+</p>
+
 ## About the project.
 
-### Drag and Drop
-
-- Drag and drop is implemented with native html5 drag and drop api with @drag, @dragend, @dragenter eventlisteners on the Card.vue component.
-- Libraries like Vue.draggable were not used as i had to write most of the drag and drop logic according to the solitaire game type and I also had to **MOVE** the stack of cards.
-- Ghost image in drag is removed instead the **whole stack** of card moves with cursor change.
-
-### CSS
-
-- Each and every card is 100% css except the SVG of the suit in the center of the card,which is made by illustrator tool.
-
-  <p align="center"><img  src="./readme_assets/4.png" width="30%"></p>
-
-### 3 mode menu
-
-Choose from 3 variants of solitaire form the main menu
-
-<p align="center"><img  src="./readme_assets/menu.png" width="70%"></p>
-
-# Variants
-
-## **Klondike**
-
-<p align="center">
-<img  src="./readme_assets/3.png" width="80%">
-</p>
-<!-- <img src="./readme_assets/3.png" width="50%"> -->
-
-## **Spider 4 Suit**
-
-<p align="center">
-<img  src="./readme_assets/5.png" width="80%">
+<p>
+The following libraries were used in the creation of the game:
+<br/>
+- tween.js: 18.6.4,
+<br/>
+- howler: 2.2.3
 </p>
 
-## **Spider 1 Suit**
-
-<p align="center">
-<img  src="./readme_assets/1.png" width="80%">
-</p>
+<p>The game was compiled using Webpack 5.74.0</p>
 
 ## Project setup
 
 ```
 npm install
-npm run serve
+npm run build
 ```
 
 ## Future scope
 
-- Add winning animation.
-
-## Support on Beerpay
-
-Hey dude! Help me out for a couple of :beers:!
-
-[![Beerpay](https://beerpay.io/silent-lad/VueSolitaire/badge.svg?style=beer-square)](https://beerpay.io/silent-lad/VueSolitaire) [![Beerpay](https://beerpay.io/silent-lad/VueSolitaire/make-wish.svg?style=flat-square)](https://beerpay.io/silent-lad/VueSolitaire?focus=wish)
+- Add bets or keys for open chests.
