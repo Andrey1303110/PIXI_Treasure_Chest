@@ -125,6 +125,6 @@ npm install
 npm run build
 ```
 
-## Future scope
+## Future
 
 - Add bets or keys for open chests.
