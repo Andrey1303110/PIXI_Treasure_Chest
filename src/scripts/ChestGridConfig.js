@@ -7,7 +7,7 @@ export let ChestGridConfig = {
         init_delay: 425,
         position_duration: 275,
     },
-    bonusWinChance: 1,
+    bonusWinChance: 1/2,
     bonusMaxCount: 1,
 };
 
