@@ -108,6 +108,18 @@ This game created on PixiJS — The HTML5 Creation Engine
 
 ## About the project.
 
+### Game logic
+
+<p>
+    Each time when new chest are initialized, each chest is randomly given a flag or it is the winning chest. In this case the odds are 50/50.
+    <br/>
+    But it can happen that none of the chests is the winning one. Then a function will be started that randomly selects one of the chests and makes it the winning chest.
+    <br/>
+    In addition, when game create a chest that has a winning flag, a function will run that will randomly determine if this win is a bonus in the chance specified in the configuration file - ChestGridConfig.js in the scripts folder. In that file need to find object.value - bonusWinChance (on default he has value 1/2). From which we get the probability of winning the bonus 1/2 * 1/2 when open a winning chest.
+</p>
+
+### Used resources
+
 <p>
 The following libraries were used in the creation of the game:
 <br/>
