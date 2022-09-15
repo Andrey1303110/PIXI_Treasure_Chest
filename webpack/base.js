@@ -35,7 +35,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({
-      root: path.resolve(__dirname, "../")
+      cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist/**/*")],
     }),
     new webpack.DefinePlugin({
       CANVAS_RENDERER: JSON.stringify(true),
@@ -44,5 +44,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./index.html"
     })
-  ]
+  ],
+  output: {
+    path: path.resolve(__dirname, "dist"),
+  },
 };
