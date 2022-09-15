@@ -7,21 +7,51 @@ This game created on PixiJS — The HTML5 Creation Engine
 
 ![pixi.js logo](https://pixijs.download/pixijs-banner-no-version.png)
 
-[![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.com/users/988801658278539344)
-[![npm version](https://badge.fury.io/js/pixi.js.svg)](https://badge.fury.io/js/pixi.js)
-[![Node.js CI](https://github.com/pixijs/pixi.js/workflows/Node.js%20CI/badge.svg)](https://github.com/pixi.js/pixi.js/actions?query=workflow%3A%22Node.js+CI%22)
-
 <p align="center">
-    Start screen
+[![npm version](https://badge.fury.io/js/pixi.js.svg)](https://badge.fury.io/js/pixi.js)
 </p>
+
+## Live Demo
+
+<h2 align="center"><a  href="https://treasure-chest-game.netlify.app/">Play NOW!</a></h2>
+
+## Description
+**Start screen**
 
 <img src="/readme_assets/1.png" width="100%">
 
-<h2 align="center"><a  href="https://treasure-chest-game.netlify.app/">Live Demo</a></h2>
+<p>
+    On the start screen we have just one button, which will display the chest on our screen.
+</p>
 
-## Description
+**Screen with chests**
 
-**NOW WITH DRAG AND DROP**
+<img src="/readme_assets/2.png" width="100%">
+
+<p>
+    Now we have the initialization of 6 chests on our screen. Their number vertically and horizontally can be changed, through the configuration file.
+</p>
+
+## How to play
+
+<p>
+    To play, we just need to click on one chest, after which it will be opened.
+    <br/>
+    There are two variants of chests - winning and losing.
+</p>
+
+<p>
+    Lose chest
+</p>
+
+<img src="/readme_assets/lose.png" width="45%">
+
+<p>
+    Win chest
+</p>
+
+<img src="/readme_assets/win.png" width="45%">
+
 
 <p align="center">
 <img src="https://media.giphy.com/media/7OWdOQupgCClrZb19P/giphy.gif" width="80%"></p>
