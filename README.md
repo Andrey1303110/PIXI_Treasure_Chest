@@ -44,13 +44,13 @@ This game created on PixiJS — The HTML5 Creation Engine
     Lose chest
 </p>
 
-<img src="/readme_assets/lose.png" width="45%">
+<img src="/readme_assets/lose.gif" width="45%">
 
 <p>
     Win chest
 </p>
 
-<img src="/readme_assets/win.png" width="45%">
+<img src="/readme_assets/win.gif" width="45%">
 
 
 <p align="center">
