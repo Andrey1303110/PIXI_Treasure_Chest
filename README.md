@@ -41,35 +41,47 @@ This game created on PixiJS — The HTML5 Creation Engine
 <p>
     Lose chest
 </p>
-<img src="/readme_assets/lose.gif" width="30%">
+<p align="center">
+    <img src="/readme_assets/lose.gif" width="30%">
+</p>
 
 <p>
     Win chest
 </p>
-<img src="/readme_assets/win.gif" width="30%">
-
-
 <p align="center">
-<img src="https://media.giphy.com/media/7OWdOQupgCClrZb19P/giphy.gif" width="80%"></p>
+    <img src="/readme_assets/win.gif" width="30%">
+</p>
 
-Solitaire implemented by scratch on vue.js. It contains 3 types of solitaire namely spider(which was made famous by microsoft back when I was a kid) ,spider 4 suit and klondike. I've learned web development myself without any course or coaching so don't expect too much from the source code xD.
+**When chest was opened**
 
-**This project is inspired by [AadumKhor](https://github.com/AadumKhor) Go check out his flutter implementation of the same [Here](https://github.com/AadumKhor/Solitaire_Flutter)** .
+<p>
+    There are three options for the scenario
+    <br/>
+    1) The Chest loses - Then nothing happens and the chest just returns to its place on the screen
+    <br/>
+    2) The Chest winning - Starts a coin drop animation
+    <br/>
+    3) The Chest bonus winning - Starts a gold bars drop animation
+</p>
 
-## How to play
+###### Chest loses
 
-### Drag and Drop [__Chrome,Opera__]:-
+<img src="/readme_assets/3.png" width="100%">
 
-- **Drag** the card or the card pile you want to move.
-- **Drop** the dragged card pile on the target and if the move is legal card will move
-- Note:- Drag and Drop doesn't work for properly for **firefox** due to their lack of support to html Drag and drop API - https://bugzilla.mozilla.org/show_bug.cgi?id=505521 .
+###### Chest winning
 
-### Click edition [__Mobile,Firefox,Chrome,Safari,Opera__]-
+<img src="/readme_assets/4.png" width="100%">
 
-- **Click** on the card or card pile you want to move .The pile turns to **blue**.
-- **Click** on the
-  destination card and if the move is legal the cards will
-  stack below the target.
+
+###### Chest winning animation
+
+<img src="/readme_assets/5.png" width="100%">
+
+###### Chest bonus winning animation
+
+<img src="/readme_assets/6.png" width="100%">
+
+
 
 ## About the project.
 
