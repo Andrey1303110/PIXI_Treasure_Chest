@@ -7,7 +7,8 @@ import { Globals } from "./Globals";
 export class App {
     run() {
         this.app = new PIXI.Application({
-            resizeTo: window
+            resizeTo: window,
+            backgroundColor: 0x192631
         });
         document.body.appendChild(this.app.view);
 
@@ -16,6 +17,8 @@ export class App {
     }
 
     start() {
+        document.querySelector(".loader").style.display = "none";
+        
         this.app.ticker.add(() => {
             TWEEN.update();
         })
