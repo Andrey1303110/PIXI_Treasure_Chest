@@ -132,7 +132,9 @@ The following libraries were used in the creation of the game:
 
 ### Adaptation
 
-<img src="/readme_assets/10.png" width="50%">
+<p align="center">
+    <img src="/readme_assets/10.png" width="25%">
+</p>
 
 <p>The game also has an adaptive layout that expands and contracts to the size of the device screen.</p>
 
