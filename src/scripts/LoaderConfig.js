@@ -21,8 +21,12 @@ export let LoaderConfig = {
 };
 
 for (let i = 1; i <= 9; i++) {
-    LoaderConfig[`chestLose_${i}`] = require(`../sprites/lose/${i}.png`);
-    LoaderConfig[`chestWin_${i}`] = require(`../sprites/win/${i}.png`);
+    if (i <= 5) {
+        LoaderConfig[`chest_${i}`] = require(`../sprites/win/${i}.png`);
+    } else {
+        LoaderConfig[`chestLose_${i}`] = require(`../sprites/lose/${i}.png`);
+        LoaderConfig[`chestWin_${i}`] = require(`../sprites/win/${i}.png`);
+    }
     LoaderConfig[`goldCoin_${i}`] = require(`../sprites/gold_coin/${i}.png`);
 }
 

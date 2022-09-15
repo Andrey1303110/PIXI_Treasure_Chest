@@ -47,7 +47,6 @@ export class WinObject {
 
         const size_cof = (Math.random() * (150 - 50) + 50)/100;
         const sprite_speed = Math.random() * (1/3 - 1/7) + 1/7;
-        //const sprite_speed = (Math.random() * (1000/2.5 - 1000/7) + 1000/7)/1000;
 
         this.sprite.width *= size_cof;
         this.sprite.height *= size_cof;

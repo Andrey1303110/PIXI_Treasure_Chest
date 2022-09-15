@@ -26,10 +26,15 @@ export class Chest {
 
         for (let i = 1; i <= 9; i++) {
             let source;
-            if (this.isWin) {
-                source = Globals.resources[`chestWin_${i}`];
+
+            if (i <= 5) {
+                source = Globals.resources[`chest_${i}`];
             } else {
-                source = Globals.resources[`chestLose_${i}`];
+                if (this.isWin) {
+                    source = Globals.resources[`chestWin_${i}`];
+                } else {
+                    source = Globals.resources[`chestLose_${i}`];
+                }
             }
             textureArray.push(source.texture);
         };
