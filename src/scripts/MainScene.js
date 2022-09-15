@@ -16,10 +16,10 @@ export class MainScene {
             this.container.removeChild(this.bonus_banknote);
             this.bonus_banknote.destroy();
         }
+        this.addSounds();
         this.createBackground();
         this.createInitChest();
         this.createPlayNowButton();
-        this.addSounds();
     }
 
     createBackground() {
@@ -73,6 +73,10 @@ export class MainScene {
     }
 
     createInitChest() {
+        if (!Globals.resources.sounds.theme.playing()) {
+            Globals.resources.sounds.theme.play();
+        }
+
         this.initChest = new PIXI.Sprite(Globals.resources["chestWin_9"].texture);
 
         this.initChest.width = document.body.clientHeight / 2.45;
