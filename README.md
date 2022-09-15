@@ -7,9 +7,7 @@ This game created on PixiJS — The HTML5 Creation Engine
 
 ![pixi.js logo](https://pixijs.download/pixijs-banner-no-version.png)
 
-<p align="center">
 [![npm version](https://badge.fury.io/js/pixi.js.svg)](https://badge.fury.io/js/pixi.js)
-</p>
 
 ## Live Demo
 
@@ -44,13 +42,18 @@ This game created on PixiJS — The HTML5 Creation Engine
     Lose chest
 </p>
 
-<img src="/readme_assets/lose.gif" width="45%">
+
 
 <p>
     Win chest
 </p>
 
 <img src="/readme_assets/win.gif" width="45%">
+
+<div style="display: flex">
+    <img src="/readme_assets/win.gif" width="45%">
+    <img src="/readme_assets/lose.gif" width="45%">
+</div>
 
 
 <p align="center">
