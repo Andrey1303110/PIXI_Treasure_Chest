@@ -281,36 +281,33 @@ export class MainScene {
         Globals.resources.sounds = {
             click: new Howl({
                 src: [Globals.resources.click_mp3.url, Globals.resources.click_wav.url],
-                html5: true
             }),
             lose: new Howl({
                 src: [Globals.resources.lose_mp3.url, Globals.resources.lose_wav.url],
-                html5: true,
                 rate: 2
             }),
             win: new Howl({
                 src: [Globals.resources.win_mp3.url, Globals.resources.win_wav.url],
-                html5: true
             }),
             angelic_choir: new Howl({
                 src: [Globals.resources.angelic_choir_mp3.url, Globals.resources.angelic_choir_wav.url],
-                html5: true
             }),
             coins: new Howl({
                 src: [Globals.resources.coins_mp3.url, Globals.resources.coins_wav.url],
-                html5: true
             }),
             congratulations: new Howl({
                 src: [Globals.resources.congratulations_mp3.url, Globals.resources.congratulations_wav.url],
-                html5: true
             }),
             theme: new Howl({
                 src: [Globals.resources.theme_mp3.url, Globals.resources.theme_wav.url],
-                html5: true,
                 autoplay: true,
                 loop: true,
                 volume: 0.15,
             }),
         };
+
+        Globals.resources.sounds.theme.once('load', function(){
+            Globals.resources.sounds.theme.play();
+        });
     }
 }
